@@ -28,5 +28,8 @@ return { -- Collection of various small independent plugins/modules
     -- - sr)' - [S]urround [R]eplace [)] [']
     -- require('mini.surround').setup()
     -- Check out: https://github.com/echasnovski/mini.nvim
+    --
+
+    vim.api.nvim_set_keymap('n', 'viF', '[mvi{', { noremap = true, silent = true })
   end,
 }
