@@ -683,36 +683,28 @@ require('lazy').setup({
           },
         },
       }
-      ---@type MasonLspconfigSettings
-      ---@diagnostic disable-next-line: missing-fields
-      require('mason-lspconfig').setup {
-        automatic_enable = vim.tbl_keys(servers or {}),
-      }
 
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
-      --  other tools, you can run
-      --    :Mason
-      --
-      --  You can press `g?` for help in this menu.
-      -- require('mason').setup()
+      for server_name, server_config in pairs(servers) do
+        server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
+        vim.lsp.config(server_name, server_config)
+        vim.lsp.enable(server_name)
+      end
+
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
       require('mason').setup {
         registries = {
           'github:mason-org/mason-registry',
           'github:Crashdummyy/mason-registry',
         },
       }
+      --
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-      for server_name, config in pairs(servers) do
-        vim.lsp.config(server_name, config)
-      end
     end,
   },
 
@@ -1134,17 +1126,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     }
   end,
 })
-
-function CloseOthers()
-  local bufs = vim.api.nvim_list_bufs()
-  local current_buf = vim.api.nvim_get_current_buf()
-  for _, i in ipairs(bufs) do
-    if i ~= current_buf then
-      vim.api.nvim_buf_delete(i, { force = true })
-    end
-  end
-end
-vim.api.nvim_create_user_command('CloseOthers', CloseOthers, {})
 
 -- resize splits
 vim.keymap.set('n', '<S-A-h>', ':vertical resize +5<CR>', { silent = true, noremap = true })
