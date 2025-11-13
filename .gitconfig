@@ -1,0 +1,33 @@
+[user]
+    name = Nick Allen
+    email = nick.allen@dataglide.co
+[format]
+    pretty = format:%C(Yellow)%h %C(cyan)%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
+[log]
+    date = format:%Y-%m-%d %H:%M:%S
+[push]
+    default = current
+[mergetool]
+    keepBackup = false
+[alias]
+    s = status
+    cleanlocalbranches = ! git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+[fetch]
+    prune = true
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[core]
+	editor = nvim
+	excludesFile = ~/.gitignore
+[credential]
+	credentialStore = secretservice
+	helper = 
+	helper = /usr/bin/git-credential-manager
+	helper = 
+	helper = /home/nick/.dotnet/tools/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[init]
+	defaultBranch = main
