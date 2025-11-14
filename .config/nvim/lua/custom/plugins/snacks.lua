@@ -9,6 +9,7 @@ return {
       -- refer to the configuration section below
     },
     scope = {
+      ui_select = true,
       -- absolute minimum size of the scope.
       -- can be less if the scope is a top-level single line scope
       min_size = 2,

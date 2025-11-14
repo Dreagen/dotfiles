@@ -3,11 +3,11 @@ return {
     'CopilotC-Nvim/CopilotChat.nvim',
     branch = 'main',
     dependencies = {
-      'github/copilot.vim', -- or zbirenbaum/copilot.lua
+      'zbirenbaum/copilot.lua', -- or 'github/copilot.vim'
       'nvim-lua/plenary.nvim', -- for curl, log wrapper
     },
     opts = {
-      model = 'claude-3.7-sonnet',
+      model = 'claude-4.5-sonnet',
     },
     keys = {
       { '<leader>ac', ':CopilotChatOpen<CR>', mode = { 'n', 'o', 'x' } },
