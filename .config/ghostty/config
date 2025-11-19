@@ -4,7 +4,7 @@ command = /usr/bin/fish --login --interactive
 config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
 # Font
-font-family = "CaskaydiaMono Nerd Font Mono"
+font-family = "Adwaita Mono"
 font-style = Regular
 font-size = 13
 
