@@ -651,7 +651,9 @@ require('lazy').setup({
         gopls = {},
         -- csharp_ls = {},
         -- omnisharp = {},
-        roslyn = {},
+        roslyn = {
+
+        },
         html = {},
         jsonls = {},
         elixirls = {},
