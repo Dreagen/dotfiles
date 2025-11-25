@@ -1164,3 +1164,11 @@ vim.api.nvim_create_user_command('Wa', 'wa', { bang = true })
 vim.api.nvim_create_user_command('Wq', 'wq', { bang = true })
 vim.api.nvim_create_user_command('Wqa', 'wqa', { bang = true })
 vim.api.nvim_create_user_command('Q', 'q', { bang = true })
+
+-- set cursor color
+vim.opt.guicursor = {
+  "n-v-c:block-CurNorm",
+  "i:ver25-CurInsert"
+}
+
+vim.api.nvim_set_hl(0, "CurInsert", { fg = "black", bg = "#ff00ff" })
