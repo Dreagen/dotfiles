@@ -1172,3 +1172,6 @@ vim.opt.guicursor = {
 }
 
 vim.api.nvim_set_hl(0, "CurInsert", { fg = "black", bg = "#ff00ff" })
+
+-- set float windows border style
+vim.o.winborder = "single"
