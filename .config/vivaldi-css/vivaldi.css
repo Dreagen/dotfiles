@@ -1,0 +1,13 @@
+#switch {
+  display: none;
+}
+
+
+#ui-region-panel {
+  max-width: none !important;
+}
+
+
+#panels-container:has(#ui-region-panel[aria-hidden="true"]) {
+  width: 0px !important;
+}
