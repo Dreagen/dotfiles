@@ -1177,3 +1177,25 @@ vim.api.nvim_set_hl(0, "CurInsert", { fg = "black", bg = "#ff00ff" })
 
 -- set float windows border style
 vim.o.winborder = "single"
+
+vim.api.nvim_create_user_command("Filetype", function()
+  require("telescope.builtin").filetypes {
+    attach_mappings = function(_, map)
+      map("i", "<CR>", function(prompt_bufnr)
+        local actions = require("telescope.actions")
+        local state = require("telescope.actions.state")
+
+        local selection = state.get_selected_entry()
+        actions.close(prompt_bufnr)
+
+        if selection then
+          -- Use setfiletype so FileType autocmds fire correctly
+          vim.cmd("setfiletype " .. selection.value)
+        end
+      end)
+      return true
+    end,
+  }
+end, {
+  desc = "Pick and set buffer filetype using Telescope",
+})
