@@ -653,9 +653,7 @@ require('lazy').setup({
         gopls = {},
         -- csharp_ls = {},
         -- omnisharp = {},
-        roslyn = {
-
-        },
+        roslyn = {},
         html = {},
         jsonls = {},
         elixirls = {},
@@ -1167,35 +1165,88 @@ vim.api.nvim_create_user_command('Wq', 'wq', { bang = true })
 vim.api.nvim_create_user_command('Wqa', 'wqa', { bang = true })
 vim.api.nvim_create_user_command('Q', 'q', { bang = true })
 
--- set cursor color
-vim.opt.guicursor = {
-  "n-v-c:block-CurNorm",
-  "i:ver25-CurInsert"
+-- SQLCMD wide column mode utilities
+local sqlcmd_env = {
+  fixed_width = vim.env.SQLCMDMAXFIXEDTYPEWIDTH or nil,
+  var_width = vim.env.SQLCMDMAXVARTYPEWIDTH or nil,
 }
 
-vim.api.nvim_set_hl(0, "CurInsert", { fg = "black", bg = "#ff00ff" })
+local function enable_wide_columns()
+  vim.env.SQLCMDMAXFIXEDTYPEWIDTH = '12000'
+  vim.env.SQLCMDMAXVARTYPEWIDTH = '12000'
+  print 'Wide column mode enabled for sqlcmd'
+end
+
+local function disable_wide_columns()
+  vim.env.SQLCMDMAXFIXEDTYPEWIDTH = sqlcmd_env.fixed_width
+  vim.env.SQLCMDMAXVARTYPEWIDTH = sqlcmd_env.var_width
+  print 'Wide column mode disabled for sqlcmd'
+end
+
+local wide_columns_enabled = false
+local function toggle_wide_columns()
+  if wide_columns_enabled then
+    disable_wide_columns()
+  else
+    enable_wide_columns()
+  end
+  wide_columns_enabled = not wide_columns_enabled
+end
+
+vim.api.nvim_create_user_command('EnableWideColumns', enable_wide_columns, {})
+vim.api.nvim_create_user_command('DisableWideColumns', disable_wide_columns, {})
+vim.api.nvim_create_user_command('ToggleWideColumns', toggle_wide_columns, {})
+
+vim.api.nvim_create_user_command('ExtractMappedJson', function()
+  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  local json_line = table.concat(lines, '\n')
+
+  local json_content = json_line:match '"MappedJSON":"({.-})"'
+  if json_content then
+    json_content = json_content:gsub('\\"', '"')
+    json_content = json_content:gsub('%s+', ' ')
+    json_content = json_content:gsub('\\\\/', '/')
+
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(json_content, '\n'))
+
+    vim.bo.filetype = 'json'
+    vim.defer_fn(function()
+      vim.lsp.buf.format { async = true }
+    end, 200)
+  else
+    print 'No JSON object found in MappedJSON field'
+  end
+end, {})
+
+-- set cursor color
+vim.opt.guicursor = {
+  'n-v-c:block-CurNorm',
+  'i:ver25-CurInsert',
+}
+
+vim.api.nvim_set_hl(0, 'CurInsert', { fg = 'black', bg = '#ff00ff' })
 
 -- set float windows border style
-vim.o.winborder = "single"
+vim.o.winborder = 'single'
 
-vim.api.nvim_create_user_command("Filetype", function()
-  require("telescope.builtin").filetypes {
+vim.api.nvim_create_user_command('Filetype', function()
+  require('telescope.builtin').filetypes {
     attach_mappings = function(_, map)
-      map("i", "<CR>", function(prompt_bufnr)
-        local actions = require("telescope.actions")
-        local state = require("telescope.actions.state")
+      map('i', '<CR>', function(prompt_bufnr)
+        local actions = require 'telescope.actions'
+        local state = require 'telescope.actions.state'
 
         local selection = state.get_selected_entry()
         actions.close(prompt_bufnr)
 
         if selection then
           -- Use setfiletype so FileType autocmds fire correctly
-          vim.cmd("setfiletype " .. selection.value)
+          vim.cmd('setfiletype ' .. selection.value)
         end
       end)
       return true
     end,
   }
 end, {
-  desc = "Pick and set buffer filetype using Telescope",
+  desc = 'Pick and set buffer filetype using Telescope',
 })
