@@ -1250,3 +1250,5 @@ vim.api.nvim_create_user_command('Filetype', function()
 end, {
   desc = 'Pick and set buffer filetype using Telescope',
 })
+
+vim.api.nvim_set_keymap('n', '<leader>gh', ':Telescope git_bcommits<CR>', { noremap = true, silent = true, desc = 'Show history for current file' })
