@@ -1,4 +1,4 @@
 {
-    "$schema": "https://opencode.ai/config.json",
-    "theme": "rosepine"
+  "$schema": "https://opencode.ai/tui.json",
+  "theme": "rosepine",
 }
