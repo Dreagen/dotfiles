@@ -34,6 +34,9 @@ vim.opt.smartindent = true
 vim.opt.smarttab = true
 vim.g.have_nerd_font = true
 
+-- keep cursor not at the bottom of the screen
+vim.opt.scrolloff = 10
+
 -- Folding
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
@@ -43,19 +46,14 @@ vim.opt.foldlevel = 99
 vim.opt.foldnestmax = 4
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
 
 -- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -210,6 +208,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
       end, '[T]oggle Inlay [H]ints')
     end
+    vim.lsp.codelens.enable(false)
   end,
 })
 
@@ -227,4 +226,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     }
   end,
 })
-
