@@ -136,34 +136,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist,  { desc = 'Open diag
 -- new ui
 -- require('vim._core.ui2').enable({})
 
--- plugins
-require('plugins.git-signs')
-require('plugins.snacks')
-require('plugins.tree-sitter')
-require('plugins.which-key')
-require('plugins.mason')
-require('plugins.rose-pine')
-require('plugins.easy-dotnet')
-require('plugins.todo-comments')
-require('plugins.mini')
-require('plugins.blink-cmp')
-require('plugins.dadbod')
-require('plugins.auto-pairs')
-require('plugins.bicep')
-require('plugins.blame')
-require('plugins.copilot')
-require('plugins.flash')
-require('plugins.harpoon')
-require('plugins.jump-to-test')
-require('plugins.multi-cursor')
-require('plugins.neogit')
-require('plugins.nvim-dap')
-require('plugins.oil')
-require('plugins.spider')
-require('plugins.tiny-inline-diagnostics')
-require('plugins.yanky')
-require('plugins.streamline')
-
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
   callback = function(event)
