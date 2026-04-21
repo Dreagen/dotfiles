@@ -230,3 +230,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     }
   end,
 })
+
+vim.api.nvim_set_hl(0, "@lsp.type.recordClass", { link = "@type" })
+vim.api.nvim_set_hl(0, "@lsp.type.recordStruct", { link = "@type" })
+vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod", { link = "@function.method" })
