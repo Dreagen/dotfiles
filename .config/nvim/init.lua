@@ -85,6 +85,10 @@ vim.api.nvim_create_user_command('Wq', 'wq', { bang = true })
 vim.api.nvim_create_user_command('Wqa', 'wqa', { bang = true })
 vim.api.nvim_create_user_command('Q', 'q', { bang = true })
 vim.api.nvim_create_user_command('Qa', 'qa', { bang = true })
+--
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- SQLCMD wide column mode utilities
 local sqlcmd_env = {
