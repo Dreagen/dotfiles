@@ -3,7 +3,7 @@ vim.g.maplocalleader = ' '
 -- Prevents showing extra messages when using completion
 vim.opt.shortmess:append("c")
 -- Sets the height of the command line area at the bottom
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 0
 -- Displays the line number for the current line
 vim.opt.number = true
 -- Displays line numbers relative to the current cursor position
@@ -32,6 +32,8 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 -- Makes <Tab> insert 'shiftwidth' number of spaces at the start of a line
 vim.opt.smarttab = true
+vim.opt.showmode = false
+vim.opt.showcmd = false
 vim.g.have_nerd_font = true
 
 -- keep cursor not at the bottom of the screen
