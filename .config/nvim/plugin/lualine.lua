@@ -3,6 +3,10 @@ vim.pack.add({
     'https://github.com/nvim-lualine/lualine.nvim'
 })
 
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
+  callback = function() require('lualine').refresh() end,
+})
+
 require('lualine').setup({
   sections = {
     lualine_c = { { 'filename', path = 1 } },
@@ -25,6 +29,19 @@ require('lualine').setup({
           local mode = vim.fn.mode()
           return mode == 'v' or mode == 'V' or mode == '\22'
         end,
+      },
+      {
+        function()
+          local reg = vim.fn.reg_recording()
+          if reg ~= '' then
+            return 'recording @' .. reg
+          end
+          return ''
+        end,
+        cond = function()
+          return vim.fn.reg_recording() ~= ''
+        end,
+        color = 'RedrawDebugRecompose'
       },
       'encoding', 'filetype',
     },
