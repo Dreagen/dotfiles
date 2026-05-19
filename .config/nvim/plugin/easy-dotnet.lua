@@ -5,6 +5,9 @@ vim.pack.add({
 
 local dotnet = require('easy-dotnet')
 dotnet.setup({
+  auto_bootstrap_namespace = {
+    enabled = false
+  },
   test_runner = {
     viewmode = 'float',
     enable_buffer_test_execution = true,
