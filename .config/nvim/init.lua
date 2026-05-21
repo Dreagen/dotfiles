@@ -136,7 +136,7 @@ vim.keymap.set('n', '<leader>i', vim.diagnostic.open_float,  { desc = 'Show diag
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist,  { desc = 'Open diagnostic quickfix list' })
 
 -- new ui
--- require('vim._core.ui2').enable({})
+require('vim._core.ui2').enable({})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
