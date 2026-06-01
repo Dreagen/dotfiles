@@ -26,6 +26,8 @@ dotnet.setup({
   },
 })
 
+require("easy-dotnet.netcoredbg").register_dap_variables_viewer()
+
 vim.keymap.set('n', '<leader>dt', dotnet.testrunner,              { desc = 'dotnet test runner' })
 vim.keymap.set('n', '<leader>db', dotnet.build_solution_quickfix, { desc = 'dotnet build' })
 vim.keymap.set('n', '<leader>dp', dotnet.project_view_default,    { desc = 'Project View' })
