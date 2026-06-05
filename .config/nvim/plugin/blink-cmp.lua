@@ -1,4 +1,7 @@
-vim.pack.add({ 'https://github.com/saghen/blink.cmp' })
+vim.pack.add({
+    'https://github.com/saghen/blink.lib',
+    'https://github.com/saghen/blink.cmp'
+})
 
 require('blink.cmp').setup({
   keymap = { preset = 'default' },
