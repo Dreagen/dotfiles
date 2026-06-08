@@ -1,6 +1,5 @@
 vim.pack.add({
-    'https://github.com/saghen/blink.lib',
-    'https://github.com/saghen/blink.cmp'
+    { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1') }
 })
 
 require('blink.cmp').setup({
@@ -15,6 +14,7 @@ require('blink.cmp').setup({
       sql   = { 'dadbod', 'buffer' },
       mysql = { 'dadbod', 'buffer' },
       plsql = { 'dadbod', 'buffer' },
+      cs = { 'lsp', 'path', 'snippets', 'buffer', 'easy-dotnet' },
     },
     providers = {
       dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
