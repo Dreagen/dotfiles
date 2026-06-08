@@ -11,9 +11,18 @@ vim.pack.add({
 })
 
 require("neo-tree").setup({
-    ["easy"] = function(state)
-      local node = state.tree:get_node()
-      local path = node.type == "directory" and node.path or vim.fs.dirname(node.path)
-      require("easy-dotnet").create_item(path)
-    end
+    filesystem = {
+      window = {
+        mappings = {
+          ["E"] = "easy",
+        },
+      },
+      commands = {
+        ["easy"] = function(state)
+          local node = state.tree:get_node()
+          local path = node.type == "directory" and node.path or vim.fs.dirname(node.path)
+          require("easy-dotnet").create_item(path)
+        end
+      }
+    },
 })
