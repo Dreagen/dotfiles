@@ -208,3 +208,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_set_hl(0, "@lsp.type.recordClass", { link = "@type" })
 vim.api.nvim_set_hl(0, "@lsp.type.recordStruct", { link = "@type" })
 vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod", { link = "@function.method" })
+
+vim.keymap.set("n", "p", "p`[v`]=")
+vim.keymap.set("n", "P", "P`[v`]=")
