@@ -211,3 +211,11 @@ vim.api.nvim_set_hl(0, "@lsp.type.extensionMethod", { link = "@function.method" 
 
 vim.keymap.set("n", "p", "p`[v`]=")
 vim.keymap.set("n", "P", "P`[v`]=")
+
+-- centre screen vertically after searching
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "*", "*zz")
+vim.keymap.set("n", "#", "#zz")
+vim.keymap.set("n", "g*", "g*zz")
+vim.keymap.set("n", "g#", "g#zz")
