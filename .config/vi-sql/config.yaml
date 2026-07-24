@@ -35,7 +35,7 @@ connections:
       timeout: 5
       options:
         alwaysConfirmActions: true
-      lastUsed: 2026-07-24T12:11:44.487125814+01:00
+      lastUsed: 2026-07-24T17:58:20.280321884+01:00
     - id: 563162a2-c697-4817-a01d-027605271e29
       driver: sqlserver
       dsn: ""
