@@ -1,0 +1,15 @@
+563162a2-c697-4817-a01d-027605271e29|2026-07-24T10:52:43Z|select * from  model.ShareClasses
+563162a2-c697-4817-a01d-027605271e29|2026-07-24T10:53:25Z|select count(*) as count from model.ShareClasses
+563162a2-c697-4817-a01d-027605271e29|2026-07-24T11:10:58Z|select * from stage.Accounts\nwhere AccountName like '%abr%'
+563162a2-c697-4817-a01d-027605271e29|2026-07-24T11:11:10Z|select * from stage.Accounts\nwhere AccountName like '%ab%'
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T10:28:23Z|select top 1 * from model.ShareClasses
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T10:34:55Z|select top 5 * from model.ShareClasses
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T11:12:02Z|select * from stage.Accounts\nwhere AccountName like '%ab%'
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T11:27:09Z|select * from model.Funds
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T11:28:56Z|EXPLAIN SELECT * FROM (select * from model.Funds) AS _q ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH NEXT 100 ROWS ONLY
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T11:30:06Z|select * from model.ShareClasses
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T11:32:24Z|EXPLAIN SELECT * FROM (select * from model.ShareClasses) AS _q ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH NEXT 100 ROWS ONLY
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T12:37:09Z|select ShareClassId, ISINCode, FundId, SubFundId, ShareClassName from model.ShareClasses
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T13:02:11Z|SELECT TOP 10\n    ShareClassId,\n    ShareClassName,\n    ISINCode,\n    Currency,\n    Status,\n    LaunchDate,\n    LiquidationDate,\n    CreatedOn,\n    ModifiedOn\nFROM model.ShareClasses\nORDER BY CreatedOn DESC
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T13:03:31Z|select top 10 * from model.ShareClasses
+1a8e0f5e-6122-4a1e-bbbe-ebc556b58051|2026-07-24T13:06:27Z|SELECT TOP 50\n    ShareClassId,\n    ShareClassName,\n    ISINCode,\n    Currency,\n    Status,\n    LaunchDate\nFROM model.ShareClasses\nORDER BY CreatedOn DESC

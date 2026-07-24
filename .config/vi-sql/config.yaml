@@ -1,0 +1,55 @@
+version: 0.1.4
+log:
+    path: /tmp/vi-sql.log
+    level: info
+    prettyPrint: true
+editor:
+    command: ""
+    env: EDITOR
+    enabled: false
+ui:
+    schemaPanelWidth: 30
+    vimMode: true
+    mouse: true
+mcp:
+    enabled: true
+    port: 9741
+    allowRead: true
+    allowWrite: false
+    maxRows: 100
+security:
+    method: keyring
+showConnectionPage: false
+currentConnection: publish-dev
+connections:
+    - id: 1a8e0f5e-6122-4a1e-bbbe-ebc556b58051
+      driver: sqlserver
+      dsn: ""
+      host: sql-dev-dataglide.database.windows.net
+      port: 1433
+      database: sqldb-dev-publish
+      username: sa-dataglide
+      password: enc:keyring:4ea14560cc9c5b4562599fcf02b52148b9fd7d99b95606363ca49640f318b148ada9442cd4c3e1bc40cd670c3b52945000e78f05403440e56dd8f3b19f0afc884500cb371c3c7a5a2b17b68ffd40
+      sslMode: "true"
+      name: publish-dev
+      timeout: 5
+      options:
+        alwaysConfirmActions: true
+      lastUsed: 2026-07-24T12:11:44.487125814+01:00
+    - id: 563162a2-c697-4817-a01d-027605271e29
+      driver: sqlserver
+      dsn: ""
+      host: sql-test-dataglide.database.windows.net
+      port: 1433
+      database: sqldb-test-publish
+      username: sa-dataglide
+      password: enc:keyring:e4c6ef5e5df58b22ba266c16cc909fd17771218b0a3241c282bbdf683edb9a328e3ba4fc027c8c8f3419c7e8986f8779
+      sslMode: "true"
+      name: publish-test
+      timeout: 5
+      options:
+        alwaysConfirmActions: true
+      lastUsed: 2026-07-24T11:45:06.399451926+01:00
+styles:
+    nerdFont: true
+    currentStyle: catppuccin.yaml
