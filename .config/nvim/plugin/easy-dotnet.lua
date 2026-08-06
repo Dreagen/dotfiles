@@ -1,6 +1,9 @@
 vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
-  'https://github.com/GustavEikaas/easy-dotnet.nvim',
+  {
+      src = 'https://github.com/GustavEikaas/easy-dotnet.nvim',
+      ref = '45072273314ee5edd1ac8dab9897aba8715a21c2'
+  }
 })
 
 local dotnet = require('easy-dotnet')
