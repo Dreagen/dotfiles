@@ -2,7 +2,7 @@ vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
   {
       src = 'https://github.com/GustavEikaas/easy-dotnet.nvim',
-      ref = '45072273314ee5edd1ac8dab9897aba8715a21c2'
+      -- ref = '45072273314ee5edd1ac8dab9897aba8715a21c2'
   }
 })
 
@@ -16,7 +16,6 @@ dotnet.setup({
     enable_buffer_test_execution = true,
   },
   picker = 'snacks',
-  background_scanning = true,
   lsp = {
     enabled = true,
     config = {
