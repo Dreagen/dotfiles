@@ -26,11 +26,11 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "dooing": {
-      "rev": "4c4ac78088cf462398a0206e79669936a184175f",
+      "rev": "8134f408bfff0e0ff7c5cf7f424b67b6cf429717",
       "src": "https://github.com/atiladefreitas/dooing"
     },
     "easy-dotnet.nvim": {
-      "rev": "0ebe09313dca2a6d4c354ab7df8e1687c2021d13",
+      "rev": "0a8cfb96e40b985921e6613f31f75811e31b8edf",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "flash.nvim": {
@@ -104,7 +104,7 @@
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
     "nvim-lspconfig": {
-      "rev": "fbaef6156f9ad65790931ab543ab1dfec57bbec7",
+      "rev": "c8a582abc20a3121a768073df569d088cb5604b5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -141,7 +141,7 @@
       "src": "https://github.com/drgfunk/streamline.nvim"
     },
     "telescope.nvim": {
-      "rev": "427b576c16792edad01a92b89721d923c19ad60f",
+      "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "tiny-cmdline.nvim": {
