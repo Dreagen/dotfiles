@@ -35,6 +35,8 @@ vim.opt.smarttab = true
 vim.opt.showmode = false
 vim.opt.showcmd = false
 vim.g.have_nerd_font = true
+-- add a new line at the end a file
+vim.opt.fixendofline = true
 
 -- keep cursor not at the bottom of the screen
 vim.opt.scrolloff = 10
