@@ -34,6 +34,12 @@
             "color": "#BF4900",
             "id": "af10860e-7aca-4d29-adf7-8f9623a87b10",
             "parentId": "ROOT"
+        },
+        {
+            "name": "Production Checks",
+            "color": "#ED9898",
+            "id": "7867bbe8-b0d9-4896-bcef-fe9c9a58c7a1",
+            "parentId": "ROOT"
         }
     ],
     "mssql.connections": [
@@ -231,6 +237,24 @@
             "savePassword": true,
             "id": "10EBBF73-0F24-47B8-A64A-03FF9E6646E3",
             "profileSource": 0
+        },
+        {
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 30,
+            "applicationName": "vscode-mssql",
+            "applicationIntent": "ReadWrite",
+            "server": "sql-dev-pc-dg.database.windows.net",
+            "database": "sqldb-dev-pc",
+            "user": "sa-dataglide",
+            "password": "",
+            "commandTimeout": 30,
+            "encrypt": "Mandatory",
+            "groupId": "7867bbe8-b0d9-4896-bcef-fe9c9a58c7a1",
+            "savePassword": true,
+            "profileSource": 1,
+            "profileName": "pc-dev",
+            "trustServerCertificate": true,
+            "id": "736333fa-3fe0-4893-b831-0cd56707649c"
         }
     ],
     "editor.minimap.enabled": false,
