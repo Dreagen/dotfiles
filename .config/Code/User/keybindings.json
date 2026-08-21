@@ -1,0 +1,18 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+y",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && editorTextFocus"
+    },
+    {
+        "key": "alt+]",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "editor.action.inlineSuggest.commit",
+        "when": "inlineSuggestionVisible && editorTextFocus"
+    }
+]
