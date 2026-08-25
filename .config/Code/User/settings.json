@@ -256,6 +256,24 @@
             "savePassword": true,
             "id": "2FD392DD-ACE4-48B9-BC16-83B84DFD7FCD",
             "profileSource": 0
+        },
+        {
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 30,
+            "applicationName": "vscode-mssql",
+            "applicationIntent": "ReadWrite",
+            "server": "sql-test-pc-dg.database.windows.net",
+            "database": "sqldb-test-pc",
+            "user": "sa-dataglide",
+            "password": "",
+            "commandTimeout": 30,
+            "encrypt": "Mandatory",
+            "groupId": "7867bbe8-b0d9-4896-bcef-fe9c9a58c7a1",
+            "savePassword": true,
+            "profileSource": 1,
+            "profileName": "pc-test",
+            "trustServerCertificate": true,
+            "id": "b8f22ac9-ce1b-4b14-bd29-2083c8e1e6ae"
         }
     ],
     "editor.minimap.enabled": false,
