@@ -8,6 +8,6 @@ function ffind
         tmux rename-session (basename $dir)
         tmux rename-window code
         tmux new-window -d -n terminal -c $dir
-        tmux new-window -d -n opencode -c $dir
+        tmux new-window -d -n ai -c $dir
     end
 end
