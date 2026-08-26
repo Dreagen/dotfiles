@@ -60,9 +60,6 @@ function hist
     commandline --replace (history | fzf)
 end
  
-function ffind
-    cd (find ~/ -type d -print | fzf)
-end
 bind -M insert \cf 'ffind; commandline -f repaint'
 bind \cf 'ffind; commandline -f repaint'
 
