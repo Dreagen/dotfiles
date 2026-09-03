@@ -1,4 +1,4 @@
-{ "workbench.colorTheme": "Rosé Pine",   
+{ "workbench.colorTheme": "Hackerman",   
     
     "mssql.connectionGroups": [
         {
@@ -274,6 +274,23 @@
             "id": "8D32AE21-6FEB-480F-8F6C-99C5DB8134D0",
             "profileSource": 0,
             "profileName": "id-prod"
+        },
+        {
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 30,
+            "applicationName": "vscode-mssql",
+            "applicationIntent": "ReadWrite",
+            "server": "sql-parallel-id-dg.database.windows.net",
+            "database": "",
+            "user": "sa-dataglide",
+            "password": "",
+            "commandTimeout": 30,
+            "encrypt": "Mandatory",
+            "savePassword": true,
+            "groupId": "996DEAAE-A1DF-49F8-8AE0-B12017976834",
+            "profileSource": 1,
+            "profileName": "id-parallel",
+            "id": "8cb933de-199d-42a6-a674-09c68cb72f30"
         }
     ],
     "editor.minimap.enabled": false,
