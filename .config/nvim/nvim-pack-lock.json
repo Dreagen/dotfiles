@@ -18,7 +18,7 @@
       "src": "https://github.com/copilotlsp-nvim/copilot-lsp"
     },
     "copilot.lua": {
-      "rev": "e51d8519c79c073c41107c108be97548c115455e",
+      "rev": "7e6723aabea044519462958ffcea68d7985c5ed0",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "diffview.nvim": {
@@ -30,7 +30,7 @@
       "src": "https://github.com/atiladefreitas/dooing"
     },
     "easy-dotnet.nvim": {
-      "rev": "7765221c078267bad975fdca307776ecc01c69cc",
+      "rev": "b4c6d7ac14018416fa9f187629b5a55f9e4ceb9c",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "flash.nvim": {
@@ -59,7 +59,7 @@
       "src": "https://github.com/wtfox/luna.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "24d4ab0838b250753b307a8747ade06dc99aed9d",
+      "rev": "40276c4df7e6bdce6801d6c035c6227f9115a855",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
     },
     "mason.nvim": {
@@ -71,11 +71,11 @@
       "src": "https://github.com/echasnovski/mini.icons"
     },
     "mini.nvim": {
-      "rev": "0caecdd7408bc0a77697a83b931c742fcc5b0349",
+      "rev": "9d01f392b33fb2ba36fbc87fc0bf4453e63ffb0a",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "neo-tree.nvim": {
-      "rev": "83e7a2982fd12b9c3d35bc39dd5877cd91a02a61",
+      "rev": "f3f3bf73414e400cf9fc13fda50f00404a8f8ab1",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
       "version": "3.0.0 - 4.0.0"
     },
@@ -96,7 +96,7 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-dap": {
-      "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
+      "rev": "c9a0738e45f1bd41d792a126941348dce661cf9b",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-ui": {
@@ -104,7 +104,7 @@
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
     "nvim-lspconfig": {
-      "rev": "af9adce488c75ca0a81017945c2b7fa7b461bc23",
+      "rev": "85e732c62ac59ab7c12df71ddd020baa87948390",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -116,12 +116,12 @@
       "src": "https://github.com/chrisgrieser/nvim-spider"
     },
     "nvim-treesitter": {
-      "rev": "8b98b4470eb326f1c7b50dae79f8c963568e5720",
+      "rev": "427e9222363d07c32d6db6169e4049c28d58d141",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-web-devicons": {
-      "rev": "2ae6958df7ced50baac5035cec0c15799eedfbf7",
+      "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
