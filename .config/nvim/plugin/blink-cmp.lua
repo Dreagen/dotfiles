@@ -11,7 +11,7 @@ require('blink.cmp').setup({
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer' },
     per_filetype = {
-      sql   = { 'dadbod', 'buffer' },
+      sql   = { 'lsp', 'dadbod', 'buffer' },
       mysql = { 'dadbod', 'buffer' },
       plsql = { 'dadbod', 'buffer' },
       cs = { 'lsp', 'path', 'snippets', 'buffer', 'easy-dotnet' },

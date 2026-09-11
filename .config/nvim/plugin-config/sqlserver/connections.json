@@ -1,0 +1,18 @@
+{
+    "publish-dev": {
+        "server": "sql-dev-dataglide.database.windows.net",
+        "database": "sqldb-dev-publish",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_DEV}",
+        "trustServerCertificate" : true
+    },
+    "pc-dev": {
+        "server": "sql-dev-pc-dg.database.windows.net",
+        "database": "sqldb-dev-pc",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_DEV}",
+        "trustServerCertificate" : true
+    }
+}

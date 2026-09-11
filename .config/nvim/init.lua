@@ -56,6 +56,8 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
+vim.opt.splitbelow = true
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
