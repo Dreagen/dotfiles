@@ -7,12 +7,28 @@
         "password": "${DG_DB_PASS_DEV}",
         "trustServerCertificate" : true
     },
+    "publish-prod": {
+        "server": "sql-production-dataglide.database.windows.net",
+        "database": "sqldb-production-publish",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "promptForPassword": true,
+        "trustServerCertificate" : true
+    },
     "pc-dev": {
         "server": "sql-dev-pc-dg.database.windows.net",
         "database": "sqldb-dev-pc",
         "authenticationType" : "SqlLogin",
         "user" : "${DG_DB_USER}",
         "password": "${DG_DB_PASS_DEV}",
+        "trustServerCertificate" : true
+    },
+    "id-prod": {
+        "server": "sql-production-id-dg.database.windows.net",
+        "database": "sqldb-production-id",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "promptForPassword": true,
         "trustServerCertificate" : true
     }
 }
