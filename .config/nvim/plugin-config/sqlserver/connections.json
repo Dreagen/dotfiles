@@ -7,8 +7,32 @@
         "password": "${DG_DB_PASS_DEV}",
         "trustServerCertificate" : true
     },
+    "publish-test": {
+        "server": "sql-test-dataglide.database.windows.net",
+        "database": "sqldb-test-publish",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_TEST}",
+        "trustServerCertificate" : true
+    },
+    "publish-parallel": {
+        "server": "sql-parallel-dataglide.database.windows.net",
+        "database": "sqldb-parallel-publish",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_PARALLEL}",
+        "trustServerCertificate" : true
+    },
     "publish-prod": {
         "server": "sql-production-dataglide.database.windows.net",
+        "database": "sqldb-production-publish",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "promptForPassword": true,
+        "trustServerCertificate" : true
+    },
+    "publish-prod-replica": {
+        "server": "sql-production-dataglide-query-replicas.database.windows.net",
         "database": "sqldb-production-publish",
         "authenticationType" : "SqlLogin",
         "user" : "${DG_DB_USER}",
