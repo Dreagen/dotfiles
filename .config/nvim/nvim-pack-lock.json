@@ -30,7 +30,7 @@
       "src": "https://github.com/atiladefreitas/dooing"
     },
     "easy-dotnet.nvim": {
-      "rev": "bde7a1cf7c4dbad61d68b2ca41672bfe194b06f8",
+      "rev": "df600029a54754d90ac35fe284b3921bb7bf1023",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "flash.nvim": {
@@ -38,7 +38,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "fd36f038e52ad8409fbf9926ae4a0a514cca04d8",
+      "rev": "5eb287fdbd523c3a1b3d01f304f43570e73e259b",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "harpoon": {
