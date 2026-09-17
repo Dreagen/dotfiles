@@ -25,10 +25,6 @@
       "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
       "src": "https://github.com/sindrets/diffview.nvim"
     },
-    "dooing": {
-      "rev": "7ff620e11d023331403883280711e26d351809c6",
-      "src": "https://github.com/atiladefreitas/dooing"
-    },
     "easy-dotnet.nvim": {
       "rev": "df600029a54754d90ac35fe284b3921bb7bf1023",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
@@ -38,7 +34,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "5eb287fdbd523c3a1b3d01f304f43570e73e259b",
+      "rev": "8d79f2410c76e62b92e51c28c82e28c1c5a3daeb",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "harpoon": {
@@ -53,10 +49,6 @@
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
-    "luna.nvim": {
-      "rev": "727c19334528e1b8939f518d1ea43c4e62d98f91",
-      "src": "https://github.com/wtfox/luna.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "77e06f7d2fc127e6ef0a720b59acbc50757cff19",
@@ -139,10 +131,6 @@
     "sqlserver.nvim": {
       "rev": "82e66610c286dbeafb175beadc71b0d1e50d7db8",
       "src": "https://github.com/NicholasMata/sqlserver.nvim"
-    },
-    "streamline.nvim": {
-      "rev": "97dcd581792253b22c2637cfbe1254dc200efe6d",
-      "src": "https://github.com/drgfunk/streamline.nvim"
     },
     "telescope.nvim": {
       "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
