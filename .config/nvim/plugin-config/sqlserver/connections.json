@@ -54,5 +54,13 @@
         "user" : "${DG_DB_USER}",
         "promptForPassword": true,
         "trustServerCertificate" : true
+    },
+    "management-prod": {
+        "server": "sql-production-dataglide.database.windows.net",
+        "database": "sqldb-production-management",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "promptForPassword": true,
+        "trustServerCertificate" : true
     }
 }

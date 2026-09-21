@@ -299,5 +299,7 @@
     "vim.camelCaseMotion.enable": true,
     "vim.sneak": true,
     "editor.lineNumbers": "relative",
-    "editor.inlineSuggest.enabled": false
+    "editor.inlineSuggest.enabled": false,
+    "git.openRepositoryInParentFolders": "never",
+    "chat.viewSessions.orientation": "stacked"
 }
