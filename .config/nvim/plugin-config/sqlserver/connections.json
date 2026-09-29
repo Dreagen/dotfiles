@@ -47,6 +47,22 @@
         "password": "${DG_DB_PASS_DEV}",
         "trustServerCertificate" : true
     },
+    "pc-test": {
+        "server": "sql-test-pc-dg.database.windows.net",
+        "database": "sqldb-test-pc",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_TEST}",
+        "trustServerCertificate" : true
+    },
+    "pc-parallel": {
+        "server": "sql-parallel-pc-dg.database.windows.net",
+        "database": "sqldb-parallel-pc",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_PARALLEL}",
+        "trustServerCertificate" : true
+    },
     "id-prod": {
         "server": "sql-production-id-dg.database.windows.net",
         "database": "sqldb-production-id",
