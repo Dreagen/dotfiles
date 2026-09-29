@@ -78,5 +78,13 @@
         "user" : "${DG_DB_USER}",
         "promptForPassword": true,
         "trustServerCertificate" : true
+    },
+    "ai-prod": {
+        "server": "sql-production-ai-dg.database.windows.net",
+        "database": "sqldb-production-ai",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "promptForPassword": true,
+        "trustServerCertificate" : true
     }
 }
