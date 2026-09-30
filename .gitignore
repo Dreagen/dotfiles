@@ -3,3 +3,5 @@
 /.config/Code/User/*
 !/.config/Code/User/keybindings.json
 !/.config/Code/User/settings.json
+/.config/fish/config_private.fish
+/.config/fish/fish_variables
