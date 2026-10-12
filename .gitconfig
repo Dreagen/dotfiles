@@ -23,11 +23,11 @@
 	excludesFile = ~/.gitignore
 [credential]
 	credentialStore = secretservice
-	helper = 
-	helper = /usr/bin/git-credential-manager
-	helper = 
 	helper = /home/nick/.dotnet/tools/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 [init]
 	defaultBranch = main
+[credential "azrepos:org/Dataglide"]
+	azureAuthority = https://login.microsoftonline.com/44a31cfd-3419-4de4-9518-7c6812cfe1a6
+	username = nick.allen@dataglide.co

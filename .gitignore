@@ -5,3 +5,4 @@
 !/.config/Code/User/settings.json
 /.config/fish/config_private.fish
 /.config/fish/fish_variables
+/.nuget/packages/
