@@ -6,6 +6,12 @@ vim.pack.add({'https://github.com/folke/snacks.nvim'})
 -- Setup snacks with your config
 require('snacks').setup({
   picker = {},
+  notifier = {
+    enabled = true,
+    top_down = false,
+    margin = { top = 0, right = 1, bottom = 1 },
+    style = 'minimal'
+  },
   scope = {
     ui_select = true,
     min_size = 2,
