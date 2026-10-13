@@ -10,6 +10,10 @@ vim.keymap.set('n', '<leader>gp', function()
     gs.nav_hunk('prev')
 end, { desc = 'Previous Git hunk' })
 
+vim.keymap.set('n', '<leader>gd', function()
+    gs.preview_hunk()
+end, { desc = 'Show Git hunk diff' })
+
 vim.keymap.set('v', '<leader>gd', function()
     gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
 end, { desc = 'Discard selected Git lines' })
