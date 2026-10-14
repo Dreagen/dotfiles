@@ -3,12 +3,9 @@ vim.pack.add({
     version = 'main' },
 })
 
-require('nvim-treesitter').setup({
-  ensure_installed = { 'c_sharp', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = { 'ruby' },
-  },
-  indent = { enable = true, disable = { 'ruby' } },
+require('nvim-treesitter').setup({})
+
+-- Install configured parsers on startup when they are missing.
+require('nvim-treesitter').install({
+  'c_sharp', 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc',
 })

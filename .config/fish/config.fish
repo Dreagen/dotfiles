@@ -66,3 +66,6 @@ bind \cf 'ffind; commandline -f repaint'
 
 # set so flutter can see chrome
 set -x CHROME_EXECUTABLE /usr/bin/google-chrome-stable
+
+
+mise activate fish | source
