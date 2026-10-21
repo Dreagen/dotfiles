@@ -38,13 +38,14 @@ abbr .5 'cd ../../../../..'
 #abbr mkdir 'mkdir -p'
 
 # set custom path
-set -U fish_user_paths $HOME/.local/share/nvim/mason/bin/ $fish_user_paths
-set -U fish_user_paths $HOME/dev/dataglide/repos/dev-tools/cli-tools/amd64 $fish_user_paths
-set -U fish_user_paths $HOME/dotnet $fish_user_paths
-set -U fish_user_paths $HOME/.dotnet/tools $fish_user_paths
-set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
-set -U fish_user_paths /opt/android-sdk/cmdline-tools/latest/bin $fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+fish_add_path -U \
+    $HOME/.local/share/nvim/mason/bin \
+    $HOME/dev/dataglide/repos/dev-tools/cli-tools/amd64 \
+    $HOME/dotnet \
+    $HOME/.dotnet/tools \
+    $HOME/.cargo/bin \
+    /opt/android-sdk/cmdline-tools/latest/bin \
+    $HOME/.local/bin
 
 set -x DOTNET_ROOT $HOME/dotnet
 
@@ -68,4 +69,4 @@ bind \cf 'ffind; commandline -f repaint'
 set -x CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 
 
-mise activate fish | source
+mise activate fish --shims | source
