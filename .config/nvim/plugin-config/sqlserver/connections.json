@@ -86,5 +86,13 @@
         "user" : "${DG_DB_USER}",
         "promptForPassword": true,
         "trustServerCertificate" : true
+    },
+    "itc-drtest": {
+        "server": "sql-drtest-calculations-dg.database.windows.net",
+        "database": "sqldb-drtest-itcenrichment",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_PARALLEL}",
+        "trustServerCertificate" : true
     }
 }
