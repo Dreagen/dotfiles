@@ -39,6 +39,7 @@ abbr .5 'cd ../../../../..'
 
 # set custom path
 fish_add_path -U \
+    $HOME/.bun/bin \
     $HOME/.local/share/nvim/mason/bin \
     $HOME/dev/dataglide/repos/dev-tools/cli-tools/amd64 \
     $HOME/dotnet \

@@ -11,5 +11,8 @@
       "url": "https://learn.microsoft.com/api/mcp",
       "enabled": true
     }
-  }
+  },
+  "plugin": [
+    "oh-my-openagent@latest"
+  ]
 }
