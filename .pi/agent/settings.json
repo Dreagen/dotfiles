@@ -1,0 +1,15 @@
+{
+  "lastChangelogVersion": "1.5.0",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gpt-6.1-sol",
+  "packages": [
+    "npm:@getpipher/vision",
+    "npm:@maplezzk/pi-interactive-subagents",
+    "npm:pi-web-search",
+    "../../dev/ai/pi-extensions/plan-mode",
+    {
+      "source": "npm:@narumitw/pi-usage",
+      "extensions": []
+    }
+  ]
+}

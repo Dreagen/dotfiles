@@ -63,6 +63,14 @@
         "password": "${DG_DB_PASS_PARALLEL}",
         "trustServerCertificate" : true
     },
+    "pc-production": {
+        "server": "sql-production-pc-dg.database.windows.net",
+        "database": "sqldb-production-pc",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "promptForPassword": true,
+        "trustServerCertificate" : true
+    },
     "id-prod": {
         "server": "sql-production-id-dg.database.windows.net",
         "database": "sqldb-production-id",
