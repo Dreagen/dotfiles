@@ -19,9 +19,8 @@
  * down on `session_shutdown`.
  *
  * Setup:
- *   cd ~/.pi/agent/extensions/browser
- *   npm install
- *   npx playwright install chromium
+ *   "npm:playwright-core" in settings.json "packages" (pi installs it)
+ *   npx --prefix ~/.pi/agent/npm playwright-core install chromium
  *   # then /reload in pi (or restart)
  *
  * Tweaks:
@@ -32,17 +31,28 @@
 
 import { homedir } from "node:os";
 import { join } from "node:path";
+import { createRequire } from "node:module";
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
-import {
-  chromium,
-  type BrowserContext,
-  type Page,
-  type ConsoleMessage,
-  type Request,
+import type {
+  BrowserContext,
+  Page,
+  ConsoleMessage,
+  Request,
 } from "playwright-core";
+
+// playwright-core is installed by pi into ~/.pi/agent/npm (see "packages" in
+// settings.json). It is resolved from there, lazily, because this file is
+// stowed from the dotfiles repo and the loader follows the symlink back to it,
+// where no node_modules exists.
+function loadChromium(): typeof import("playwright-core").chromium {
+  const req = createRequire(
+    join(homedir(), ".pi", "agent", "npm", "package.json"),
+  );
+  return req("playwright-core").chromium;
+}
 
 type ConsoleEntry = {
   ts: number;
@@ -139,7 +149,7 @@ export default function browserExtension(pi: ExtensionAPI) {
     if (page && !page.isClosed()) return page;
 
     if (!context) {
-      context = await chromium.launchPersistentContext(profileDir, {
+      context = await loadChromium().launchPersistentContext(profileDir, {
         headless,
         viewport: { width: 1280, height: 800 },
       });

@@ -13,10 +13,13 @@ questions itself.
 
 ## Install
 
+`playwright-core` is listed in `~/.pi/agent/settings.json` under `packages`
+(`"npm:playwright-core"`), so pi installs it into `~/.pi/agent/npm` on startup.
+The extension loads it from there; nothing is installed in this directory.
+Only the browser binary needs a manual download:
+
 ```bash
-cd ~/.pi/agent/extensions/browser
-npm install
-npx playwright install chromium    # one-time browser binary download (~150MB)
+npx --prefix ~/.pi/agent/npm playwright-core install chromium    # one-time (~150MB)
 ```
 
 Then `/reload` inside pi (or restart). The new tools (`browser_goto`,
@@ -116,7 +119,7 @@ to peek without draining.
 
 ## Caveats and known limits
 
-- `playwright-core` ships without browser binaries; the `npx playwright install
+- `playwright-core` ships without browser binaries; the `playwright-core install
   chromium` step above is required exactly once per machine.
 - The page object is a singleton — there's no tab/window management. If you
   need multiple tabs, extend `ensurePage` to accept a tab id.

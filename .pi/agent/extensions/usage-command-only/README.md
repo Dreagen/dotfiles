@@ -17,9 +17,11 @@ but disable its direct extension entry point to prevent duplicate loading:
 }
 ```
 
-Run `/reload` after changes. The import assumes Pi's normal global npm layout
-(`../../npm/node_modules/@narumitw/pi-usage/dist/index.ts`). An upstream change to
-that entry point or status key may require updating the wrapper.
+Run `/reload` after changes. The wrapper imports the package from the absolute
+path `~/.pi/agent/npm/node_modules/@narumitw/pi-usage/dist/index.ts` rather than a
+relative one, because stow symlinks this file and Pi resolves it back to the
+dotfiles repo. An upstream change to that entry point or status key may require
+updating the wrapper.
 
 ## Verify
 
