@@ -79,6 +79,14 @@
         "promptForPassword": true,
         "trustServerCertificate" : true
     },
+    "management-dev": {
+        "server": "sql-dev-dataglide.database.windows.net",
+        "database": "sqldb-dev-management",
+        "authenticationType" : "SqlLogin",
+        "user" : "${DG_DB_USER}",
+        "password": "${DG_DB_PASS_DEV}",
+        "trustServerCertificate" : true
+    },
     "management-prod": {
         "server": "sql-production-dataglide.database.windows.net",
         "database": "sqldb-production-management",

@@ -14,9 +14,11 @@
       "themes": []
     },
     "../../dev/ai/pi-extensions/plan-mode",
+    "../../dev/ai/pi-extensions/scheduler",
     {
       "source": "npm:@narumitw/pi-usage",
       "extensions": []
-    }
+    },
+    "npm:pi-vim"
   ]
 }
