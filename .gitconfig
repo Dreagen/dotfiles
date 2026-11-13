@@ -30,3 +30,6 @@
 	username = nick.allen@dataglide.co
 [include]
     path = ~/.gitconfig.local
+[credential]
+	helper = 
+	helper = /home/nick/.dotnet/tools/git-credential-manager

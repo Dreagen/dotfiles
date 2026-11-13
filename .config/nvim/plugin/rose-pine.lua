@@ -1,7 +1,5 @@
 vim.pack.add({ 'https://github.com/rose-pine/neovim' })
 
-vim.cmd.colorscheme('rose-pine')
-
 -- Use regular underlines for diagnostics because xterm-256color doesn't
 -- advertise undercurl support in this WSL terminal.
 for _, severity in ipairs({ 'Error', 'Warn', 'Info', 'Hint', 'Ok' }) do
