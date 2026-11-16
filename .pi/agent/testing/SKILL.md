@@ -1,1 +1,0 @@
-../skills/testing/SKILL.md

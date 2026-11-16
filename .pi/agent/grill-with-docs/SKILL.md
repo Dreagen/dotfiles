@@ -1,1 +1,0 @@
-../skills/grill-with-docs/SKILL.md

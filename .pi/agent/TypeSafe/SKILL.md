@@ -1,1 +1,0 @@
-../skills/TypeSafe/SKILL.md

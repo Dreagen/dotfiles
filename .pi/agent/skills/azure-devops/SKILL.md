@@ -1,5 +1,5 @@
 ---
-name: azure-devops-pr
+name: azure-devops
 description: Tells you how to access azure devops pull requests
 ---
 

@@ -1,1 +1,0 @@
-../skills/dotnet-10-upgrade/SKILL.md

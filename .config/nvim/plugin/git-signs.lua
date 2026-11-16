@@ -3,11 +3,11 @@ vim.pack.add({ 'https://github.com/lewis6991/gitsigns.nvim' })
 local gs = require('gitsigns')
 
 vim.keymap.set('n', '<leader>gn', function()
-    gs.nav_hunk('next')
+    gs.nav_hunk('next', { target = 'all' })
 end, { desc = 'Next Git hunk' })
 
 vim.keymap.set('n', '<leader>gp', function()
-    gs.nav_hunk('prev')
+    gs.nav_hunk('prev', { target = 'all' })
 end, { desc = 'Previous Git hunk' })
 
 vim.keymap.set('n', '<leader>gd', function()

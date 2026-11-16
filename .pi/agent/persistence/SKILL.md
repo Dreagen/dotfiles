@@ -1,1 +1,0 @@
-../skills/persistence/SKILL.md
