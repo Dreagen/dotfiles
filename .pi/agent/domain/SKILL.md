@@ -1,0 +1,1 @@
+../skills/domain/SKILL.md

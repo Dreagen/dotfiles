@@ -1,0 +1,1 @@
+../skills/application/SKILL.md

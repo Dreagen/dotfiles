@@ -1,0 +1,1 @@
+../skills/azure-devops/SKILL.md

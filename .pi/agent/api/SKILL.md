@@ -1,0 +1,1 @@
+../skills/api/SKILL.md

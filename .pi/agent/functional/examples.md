@@ -1,0 +1,1 @@
+../skills/functional/examples.md
