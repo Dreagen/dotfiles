@@ -21,6 +21,8 @@ Use the skill `code-review` to do a normal review. Add the resulting comments to
 ## Part 2: human-review pass
 
 Use a **different** sub agent from part 1. This agent must NOT post PR comments. It only marks files locally and returns a summary.
+Output a git diff command pointing to the files marked for human review against the root of the review
+e.g. `git diff origin/main...HEAD -- path/to/File1.cs path/to/File2.cs`
 
 ### Get the branch
 

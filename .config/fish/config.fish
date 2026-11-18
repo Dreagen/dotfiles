@@ -72,3 +72,6 @@ set -x CHROME_EXECUTABLE /usr/bin/google-chrome-stable
 
 
 mise activate fish --shims | source
+
+# Added by the Hunk installer (https://hunk.dev)
+fish_add_path '/home/nick/.hunk/bin'

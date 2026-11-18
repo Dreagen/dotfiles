@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "skills": {
+    "hunk-review": {
+      "source": "modem-dev/hunk",
+      "commit": "995af56a22c5199e120022418a21ee446f9b0023",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/hunk-review/SKILL.md",
+      "computedHash": "488ec093427d9c9b1e07db63392154cc7130d8e337fa3c669a9046a453be80f3"
+    }
+  }
+}

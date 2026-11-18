@@ -30,3 +30,5 @@
 	username = nick.allen@dataglide.co
 [include]
     path = ~/.gitconfig.local
+[pager]
+	diff = hunk pager
