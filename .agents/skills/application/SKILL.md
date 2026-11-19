@@ -14,6 +14,9 @@ Coordinates use cases and orchestrates domain and persistence interactions.
 - Use repositories for all command stack data access (no direct EF Core queries in handlers)
 - The application layer may never reference the Persistence layer directly; it should only reference the repositories via interfaces defined in the Domain layer. The actual repository implementations in the Persistence layer will be injected at runtime.
 - Implement queries with an interface so that InMemory versions can be used for testing without EF Core dependencies.
+- MediatR requests should use domain primitives where they are defined.
+- Use the `ValidationRules<TValidatedData, TDataToValidate>` pattern for validation rules.
+- Encapsulate inferred business-concept logic in the domain rather than expressing complex logic in an application handler.
 - the type `ITransactionRequest` or `ITransactionRequest<T>` can be used when only one SaveChanges is required.
 - Use Unit of Work when multiple repository operations must be atomic
 

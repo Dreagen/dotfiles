@@ -11,20 +11,22 @@ description: Testing conventions for all *.Tests / *.IntegrationTests projects -
 ## Test project folder structure
 - Each test project must have a folder structure that mirrors the layer it tests. 
 
-## Test Class Naming
-- Use the pattern: `Given<State>_Then<ExpectedResult>`
-- If the test class has greater than 5 test scenarios then separate each scenario into common operational behaviour and place those into their own test class, with multiple test methods for different states and expected results, so that each test class has a single responsibility and is easy to read and maintain.
+## Test Naming and Layout
+- Test method names follow the exact `Class_Scenario_Expected` convention: identify the class or entity under test, describe the scenario, then state the expected outcome. Use the `Given..._When..._Then...` wording within those parts as appropriate.
+- Do not abbreviate entity names in test names. For an entity named `PropertyCheck`, spell out `PropertyCheck`, not `Check`:
 
   ```csharp
-  HoldNavsFailingReleaseCriteriaCommand_ModificationCheckTests
-  HoldNavsFailingReleaseCriteriaCommand_ThresholdBreachTests
+  PropertyCheck_GivenStaticEntityWithIgnoredProperty_ThenIgnoredCheckIsLeftAloneAndValidCheckIsResolved
   ```
 
-- Use the pattern `Given<State>_With<Context>_Then<ExpectedResult>` to add variations of tests with specific contexts, such as different input parameters or preconditions, to ensure that the tests cover a wide range of scenarios and edge cases.
+- Use one test class per scenario group, in a separate file. For example, split static, share-class dynamic, and exclusion scenarios into `..._StaticTests`, `..._ShareClassDynamicTests`, and `..._ExclusionTests` classes/files. Scenario-group classes may share a test base that provides builders.
+- Keep each test organized into Arrange, Act, and Assert blocks.
 
 ## Testing conventions
 - We prefer using the Assert.That style of tests. E.g. Assert.That(actual, Is.EqualTo(expect))
 - We prefer to create dependencies of the SUT using the builder pattern, so that the test is easy to read and understand.
+- Use named arguments for magic numbers passed to builder and repository calls, so the meaning is clear; for example, `builder.WithLimit(limit: 3)` rather than `builder.WithLimit(3)`.
+- Cover all branches of business logic, including variations of business entities represented through inheritance or union-like types (for example, Funds, SubFunds, and ShareClasses as variations of Static types).
 
 ## Test Types
 - We have 2 main types of tests. 
@@ -40,6 +42,8 @@ description: Testing conventions for all *.Tests / *.IntegrationTests projects -
 - use in memory or mocked versions of persistence 
 
 - application test projects will have a base class, for example ApplicationInMemoryRepositoryBaseTests, where we configure in memory versions of our persistence (repositories, queries etc) so each application layer test class can inherit from this.
+- In-memory repositories must record the calls they receive. Assert which repository methods were called and which were not called.
+- For every exclusion rule, seed an unaffected record with the same `RelatedEntity` and assert that it remains unchanged. Always set `RelatedEntity` on seeded data.
 
 ### Persistence tests 
 - the preference is to use sqlite in memory database.
@@ -47,6 +51,7 @@ description: Testing conventions for all *.Tests / *.IntegrationTests projects -
 - persistence test projects will have a base class, for example IntegrationTestBase, where we configure the in memory sqlite database and provide helper methods to make it easy to use.
 
 - use the InvokeOperationOnDbContextAsync helper method to interact with the dbcontext, for example handling committing dependencies of the SUT.
+- Add an EF integration test in `EFPersistence.IntegrationTests` for every new repository method, covering each of its invariants.
 
 ## Related skills
 Also load the skill for the layer under test: `application`, `persistence` or `domain`.

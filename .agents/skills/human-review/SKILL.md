@@ -3,7 +3,7 @@ name: human-review
 description: Tells you how to review code and decide which items need human review (uses hunk cli tool)
 ---
 
-The review will be done using a hunk session, see skill hunk-review for interacting with hunk
+The review will be done using a hunk session, see skill hunk-review for interacting with hunk, this may be done against a PR in azure devops or just against code on the local branch, if unsure from the prompt ask for clarity from the user
 
 Review has two parts
 
