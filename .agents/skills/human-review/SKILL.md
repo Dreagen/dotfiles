@@ -1,28 +1,29 @@
 ---
-name: azure-devops-code-review
-description: Tells you how to review code in an azure devops pull request
+name: human-review
+description: Tells you how to review code and decide which items need human review (uses hunk cli tool)
 ---
 
-Reviewing an Azure DevOps pull request has two parts, done by two separate sub agents:
+The review will be done using a hunk session, see skill hunk-review for interacting with hunk
 
-1. A standard review that posts comments on the PR.
-2. A "human review" pass that marks which files a person needs to look at.
+Review has two parts
+
+1. A standard review using the code-review skill.
+2. A "human review" pass that notes which files a person needs to look at.
 
 ## Setup
 
-- Use the skill `azure-devops-pr` to connect to Azure DevOps.
+- Use the skill `azure-devops` to connect to Azure DevOps.
 - Identify the PR from the user's URL or org/project/repo/PR id. Get the source and target branches from `pullRequests/{id}` and the changed files from `pullRequests/{id}/iterations/{n}/changes`.
 - Diff against the merge-base of the source and target branches, not the whole branch history.
 
 ## Part 1: standard review
 
-Use the skill `code-review` to do a normal review. Add the resulting comments to the PR. Prefix any reply you post with "Agent Response: ".
+Use the skill `code-review` to do a normal review. Any comments will be later added to a hunk session as notes.
 
 ## Part 2: human-review pass
 
 Use a **different** sub agent from part 1. This agent must NOT post PR comments. It only marks files locally and returns a summary.
-Output a git diff command pointing to the files marked for human review against the root of the review
-e.g. `git diff origin/main...HEAD -- path/to/File1.cs path/to/File2.cs`
+Return a list of all files which need to be reviewed by a human.
 
 ### Get the branch
 
@@ -45,19 +46,15 @@ Exclude:
 - Pure renames or moves, and formatting-only changes.
 - Simple changes that are clearly correct (constants, typos, trivial config).
 
-Order the list by importance and keep it short, aiming for around 15 files at most.
-
-### Mark the files
-
-Add a TODO comment at the top of each file that needs review, in this exact greppable format with a short reason:
-
-`TODO(human-review): <reason>`
-
-- Use the comment syntax of the file type: `//` for `.cs`, `<!-- -->` for `.csproj`/`.xml`/`.razor`/`.html`, `#` for `.yml`/`.yaml`.
-- Skip files that can't hold comments (JSON, binaries, etc.). List them in the summary instead.
-- Be idempotent: if the file already has a `TODO(human-review)` line, update it rather than adding another.
-- Do NOT commit or push the TODOs. Leave them as uncommitted changes so they don't pollute the PR. Tell the user how to remove them: `git grep -l "TODO(human-review)"`.
+Order the list by importance and keep it short.
 
 ### Report
 
-Return a summary table to the user with: file, reason, risk (high/medium/low). Also list any files skipped because they couldn't take a comment.
+Return a summary table to the user with: file, reason, risk (high/medium/low).
+
+Create a hunk session with all the files needed for human review plus any that have comments from the standard review,
+add the comments from the standard review as agent notes in the hunk session and output the command needed to review the hunk session. This should have the diffs of the files agaisnt the root of the changes, 
+if we were using git diff instead of hunk an example would be something like:
+
+`git diff origin/main...HEAD -- path/to/File1.cs path/to/File2.cs`
+

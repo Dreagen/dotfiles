@@ -2,6 +2,7 @@
   "lastChangelogVersion": "1.5.2",
   "defaultProvider": "github-copilot",
   "defaultModel": "gpt-6.1-sol",
+  "theme": "last-horizon",
   "packages": [
     "npm:@getpipher/vision",
     "npm:@maplezzk/pi-interactive-subagents",
