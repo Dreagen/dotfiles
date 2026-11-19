@@ -38,6 +38,7 @@ Include:
 - New or changed tests. Check whether they actually assert the behaviour they claim to.
 - Security, auth, migrations, data deletion, concurrency or transaction changes.
 - Public API contract changes (routes, request/response shapes).
+- Project files changes (e.g. package updates or reference changes)
 - Anything out of the ordinary: large or surprising diffs, files unrelated to the PR's stated purpose, disabled or removed tests.
 
 Exclude:
