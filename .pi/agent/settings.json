@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "1.6.0",
   "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-6.1-sol",
+  "defaultModel": "claude-sonnet-5.5",
   "theme": "last-horizon",
   "packages": [
     "npm:@getpipher/vision",
