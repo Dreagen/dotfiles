@@ -17,6 +17,9 @@ Supporting file for the `functional` skill.
 **Match** \
 `Match` is used to run a function when the `Result` is Ok and another function when the `Result` is Error. The functions you pass to `Match` must return the same type.
 
+> Use `Match` only when the result of the call is used. If you are tempted to return a throwaway value (`_ => 0`) from one branch, use `TapOk` or `TapError` instead.
+
+
 **ToOkOr** \
 `ToOkOr` is used to transform an `Option` into a `Result`, the function you pass to `ToOkOr` returns the error you want to use in case the `Option` is `None`.
 
@@ -43,3 +46,34 @@ _service.DoSomethingThatReturnsOptionOfString() // returns Option<string>
 ```
 
 > In API endpoints that return a plain `200 OK`, prefer `.ToOkAsync()` over a manual `Match` (see the `functional` skill). Use `Match` when you need a different response shape.
+
+**Example: error-only side effect (message-triggered Function)**
+```csharp
+// Bad: dummy return value
+result.Match(_ => 0, error => throw new InvalidOperationException(error.Error));
+
+// Good
+result.TapError(error => throw new InvalidOperationException(error.Error));
+```
+
+**Example: validate then run an async step (handler)**
+```csharp
+public async Task<Result<Void, ApplicationError>> Handle(MyCommand request, CancellationToken ct)
+{
+    return await _validationRules.Validate(request)
+        .BindAsync(validated => ExecuteAsync(validated, ct));
+}
+
+private async Task<Result<Void, ApplicationError>> ExecuteAsync(ValidatedData data, CancellationToken ct) { ... }
+```
+
+**Example: prefer async methods**
+```csharp
+// Bad:
+(await mediator.Send(command))
+    .TapError(error => throw new InvalidOperationException("Offboarding of incorrect asset manager");
+
+// Good:
+await mediator.Send(command)
+    .TapErrorAsync(error => throw new InvalidOperationException("Offboarding of incorrect asset manager");
+```

@@ -24,6 +24,20 @@ description: Rules for the Api layer (Api / Server projects) - minimal API endpo
   PUT /api/investmentwrappers/{id}/status
   ```
 
+## Mapping Result<T, ApplicationError> to IResult
+
+Minimal API endpoints map `Result<T, ApplicationError>` values returned by MediatR handlers directly to `IResult` HTTP responses.
+
+When the response is a plain `200 OK`, call `.ToOkAsync()` directly on the result. It handles both the success and error cases.
+
+```csharp
+umbrella.MapGet("/", async (ISender sender) =>
+{
+    return await sender.Send(new GetAllUmbrellaWrappersQuery()).ToOkAsync();
+});
+```
+
 ## Related skills
 - `functional` - mapping `Result<T, ApplicationError>` to HTTP responses (`ToOkAsync`)
 - `application` - the commands and queries endpoints send
+- `functions` - the equivalent rules for Azure Function entry points

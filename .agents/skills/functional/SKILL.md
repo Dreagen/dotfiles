@@ -1,6 +1,6 @@
 ---
 name: functional
-description: How to use the Dataglide functional libraries (Dataglide.Functional, Dataglide.FunctionalExtensions) - Result<T, ApplicationError>, Option<T>, Void, Bind, Map, TapOk, Match, ToOkOr, AsOkResult, ToOkAsync and their namespaces. Use when writing handlers, domain methods that can fail, or endpoints that return a Result.
+description: How to use the Dataglide functional libraries (Dataglide.Functional, Dataglide.FunctionalExtensions) - Result<T, ApplicationError>, Option<T>, Void, Bind, Map, TapOk, TapError, Match, ToOkOr,ToOkOr, AsOkResult, ToOkAsync and their namespaces. Use when writing handlers, domain methods that can fail, endpoints that return a Result, or Function/message handlers that consume a Result.
 ---
 
 # Functional Programming Style — Railway-Oriented Programming
@@ -45,36 +45,44 @@ Functional types and extension methods are split across two packages, with a thi
 
 ## Extension Methods
 
-Note Async versions of most extension methods exist.
-
 | Method | Usage |
 |---|---|
 | `.AsOkResult()` | Lifts a plain value into a successful `Result` |
 | `.AsErrorResult<T>()` | Produces a typed error `Result` from an `ApplicationError` |
 | `.Bind(fn)` | Chains a step that can fail; short-circuits on error |
 | `.TapOk(fn)` | Runs a side effect on success without changing the value |
+| `.TapError(fn)` | Runs a side effect on error without changing the result (logging, or throwing in a message-triggered function) |
+| `.Match(onOk, onError)` | Collapses a `Result` into a single value. Both branches must return the same meaningful type |
 | `.AsOption()` | Lifts a type T into an Option<T> where a null becomes Option<T>.None |
 | `.ToOkOr(fn)` | Converts an `Option<T>` to a `Result<T, ApplicationError>`; calls the function if None |
 | `Void.New.AsOkResult()` | Produces the `Void` success result
+
+Note Async versions of most extension methods exist and should be preferred where appropriate
 
 ---
 
 ## Rules
 
 - Handlers should return `Result<T, ApplicationError>` if any part of the handler can fail for a business reason.
+- Use `Match` only when you need the value it produces (e.g. mapping to an `IResult`). Never use `Match` with a dummy return value (`_ => 0`, `_ => Void.New`) just to run a side effect in one branch. Use `TapOk` / `TapError` instead.
+- When only the error path needs handling (e.g. throwing so a message is retried or dead-lettered), use `.TapError(...)`.
 
-## API Endpoints
-
-Minimal API endpoints map `Result<T, ApplicationError>` values returned by MediatR handlers directly to `IResult` HTTP responses.
-
-When the response is a plain `200 OK`, call `.ToOkAsync()` directly on the result. It handles both the success and error cases.
+### Chaining fallible steps
 
 ```csharp
-umbrella.MapGet("/", async (ISender sender) =>
+// Bad: manual unwrapping
+Result<ValidatedData, ApplicationError> validation = _validationRules.Validate(request);
+if (validation.IsError)
 {
-    return await sender.Send(new GetAllUmbrellaWrappersQuery()).ToOkAsync();
-});
+    return validation.Error().AsErrorResult<Void>();
+}
+return await DoWorkAsync(validation.Value(), ct);
+
+// Good
+return await _validationRules.Validate(request)
+    .BindAsync(validated => DoWorkAsync(validated, ct));
 ```
+
 
 ## Examples
 If you are unsure how to chain these methods, read `examples.md` in this skill's directory.

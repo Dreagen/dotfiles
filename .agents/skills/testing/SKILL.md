@@ -12,8 +12,11 @@ description: Testing conventions for all *.Tests / *.IntegrationTests projects -
 - Each test project must have a folder structure that mirrors the layer it tests. 
 
 ## Test Naming and Layout
-- Test method names follow the exact `Class_Scenario_Expected` convention: identify the class or entity under test, describe the scenario, then state the expected outcome. Use the `Given..._When..._Then...` wording within those parts as appropriate.
-- Do not abbreviate entity names in test names. For an entity named `PropertyCheck`, spell out `PropertyCheck`, not `Check`:
+- Test method names follow the exact `Scenario_Expected` convention: identify the class or entity under test, describe the scenario, then state the expected outcome. Use the `Given..._When..._Then...` wording within those parts as appropriate. If all tests in the same test class are performing the same `when` operation, then the test name can be abbreviated to `Given..._Then...`.
+- Multiple conditions and multiple outcomes should be separated by an underscore.
+  - for example, `GivenConditionOne_AndConditionTwo_ThenOutcomeOne_AndOutcomeTwo`
+- Do not abbreviate entity names.
+  - for example, For an entity named `PropertyCheck`, spell out `PropertyCheck`, not `Check`:
 
   ```csharp
   PropertyCheck_GivenStaticEntityWithIgnoredProperty_ThenIgnoredCheckIsLeftAloneAndValidCheckIsResolved
@@ -23,10 +26,21 @@ description: Testing conventions for all *.Tests / *.IntegrationTests projects -
 - Keep each test organized into Arrange, Act, and Assert blocks.
 
 ## Testing conventions
-- We prefer using the Assert.That style of tests. E.g. Assert.That(actual, Is.EqualTo(expect))
+- We prefer using the Assert.That style of tests. 
+  - for example, Assert.That(actual, Is.EqualTo(expect))
 - We prefer to create dependencies of the SUT using the builder pattern, so that the test is easy to read and understand.
-- Use named arguments for magic numbers passed to builder and repository calls, so the meaning is clear; for example, `builder.WithLimit(limit: 3)` rather than `builder.WithLimit(3)`.
-- Cover all branches of business logic, including variations of business entities represented through inheritance or union-like types (for example, Funds, SubFunds, and ShareClasses as variations of Static types).
+- Use named arguments for magic numbers passed to builder and repository calls, so the meaning is clear; 
+  - for example, `builder.WithLimit(limit: 3)` rather than `builder.WithLimit(3)`.
+- Cover all branches of business logic, including variations of business entities represented through inheritance, union-like types (for example, Funds, SubFunds, and ShareClasses as variations of Static types) or enumerations.
+- It should be possible to understand the setup and outcome of each independent test in situ.
+  - Avoid obfuscating important parts of the "arrange", "act", "assert" stages.
+  - Helper methods can be used, but they should not obfuscate the key aspects of the test.
+  - The arrange step should clearly identify the key conditions.
+  - The assert step should clearly identify the key outcomes.
+
+## Testing directives
+- it shouldn't be possible to comment out any logic (whether application layer business logic, domain logic or repository logic) and have all the tests pass
+  - examples in the filter criteria of repository methods, or in the application layer business logic, where a developer might be tempted to comment out a line of code to make a test pass. If this is possible, then we don't have enough tests.
 
 ## Test Types
 - We have 2 main types of tests. 
@@ -38,6 +52,7 @@ description: Testing conventions for all *.Tests / *.IntegrationTests projects -
 
 - It also allows refactoring of the domain to get confidence we haven't broken anything
   - refactoring the domain shouldn't necessarily require changes to the application layer 
+  - it shouldn't be necessary to write domain level tests for every domain entity, as the application layer is the main entry point for the business scenarios.
     
 - use in memory or mocked versions of persistence 
 
