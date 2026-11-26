@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.6.0",
+  "lastChangelogVersion": "1.6.1",
   "defaultProvider": "github-copilot",
   "defaultModel": "claude-sonnet-5.5",
   "theme": "last-horizon",
